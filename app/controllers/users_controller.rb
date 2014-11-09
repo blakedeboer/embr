@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def user
+    
+  end
+
   def create
   end
 
