@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fb: MyString
+  t: MyString
+  li: MyString
+  ig: MyString
+
+two:
+  fb: MyString
+  t: MyString
+  li: MyString
+  ig: MyString
