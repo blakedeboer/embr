@@ -26,7 +26,14 @@ class UsersController < ApplicationController
   end
 
   def search
-   @gender = params[:gender]
+   session[:gender] = params[:gender]
+
+   redirect_to results_path
+  end
+
+  def results
+    @gender = session[:gender]
+    
   end
 
 end

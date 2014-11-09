@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
 
-  get '/search' => 'users#search'
+  post '/' => 'users#search'
 
   get '/results' => 'users#results'
 

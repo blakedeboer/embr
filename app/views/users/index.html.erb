@@ -1,6 +1,6 @@
 <h1>Search for a host</h1>
 
-<%= form_tag("/search", method: "get") do %>
+<%= form_tag("/", method: "post") do %>
 
  <%= select_tag(:gender, options_for_select([['male', 1], ['female', 2]])) %>
  <%= submit_tag("search") %>
