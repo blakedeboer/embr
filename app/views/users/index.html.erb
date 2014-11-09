@@ -1,22 +1,10 @@
-<h1>Welcome to Embr!</h1>
+<h1>Search for a host</h1>
 
-  <select id="gender">
-    <option value="male">male</option>
-    <option value="female">female</option>
-  </select>
+<%= form_tag("/search", method: "get") do %>
 
-<% @users.each do |user| %>
-
-<h3>
-  <a href="/users/<%= user.id %>"><%= user.name %></a>
-
-</h3>
-  <a href="/users/<%= user.id %>">
-  <img width="380" height "380" src="<%= user.prof_img %>">
-  </a>
-<ul>
-  <li><%= user.email %></li>
-  <li><%= user.age %></li>
-</ul>
-
+ <%= select_tag(:gender, options_for_select([['male', 1], ['female', 2]])) %>
+ <%= submit_tag("search") %>
 <% end %>
+
+
+

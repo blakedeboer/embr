@@ -5,10 +5,6 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def user
-    
-  end
-
   def create
   end
 
@@ -27,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   def destroy  
+  end
+
+  def search
+   @gender = params[:gender]
   end
 
 end
