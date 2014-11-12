@@ -1,0 +1,11 @@
+<h1>Apartments</h1>
+
+<% @apartments.each do |apt| %>
+  <h3><%= apt.address %></h3>
+  <ul>
+    <li><%= apt.price %></li>
+    <li><%= apt.br_count %></li>
+    <li><%= apt.ba_count %></li>
+    <li><%= apt.hood.name %></li>
+  </ul>
+<% end %>

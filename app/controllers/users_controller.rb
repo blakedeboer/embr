@@ -32,8 +32,7 @@ class UsersController < ApplicationController
   end
 
   def results
-    @gender = session[:gender]
-    
+    @users = User.where(:gender => session[:gender])
   end
 
 end

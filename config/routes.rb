@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   post '/' => 'users#search'
 
+
   get '/results' => 'users#results'
 
   # The priority is based upon order of creation: first created -> highest priority.
