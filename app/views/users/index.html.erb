@@ -1,12 +1,15 @@
-<h1>Users</h1>
+<h1>Search for a fellow broken heart</h1>
 
-<% @users.each do |user| %>
-  <h3><%= user.first_name %></h3>
-  <img src=<%= user.prof_img %> height="98">
-  <ul>
-    <li><%= user.age %></li>
-    <li><%= user.gender %></li>
-    <li><%= user.looking_for %></li>
-    <li><%= user.orientation %></li>
-  </ul>
+<%= form_tag("/", method: "post") do %>
+  <%= label_tag(:price, "Price") %>
+  <%= select(:apartment, :price, @price_array)%>
+  <%= label_tag(:hood_id, "Neighborhood") %>
+  <%= select(:apartment, :hood_id, options_for_select(@hood_names)) %>
+  <%= submit_tag(value="Let's light this candle") %>
 <% end %>
+
+
+
+
+
+

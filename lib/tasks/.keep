@@ -1,0 +1,12 @@
+#convert price on search page from integer to number
+
+#Search
+#any price
+#any hood
+#select multiple hoods and search for all
+#select user that has not been shown before
+#gives error if price is too low
+
+#Juan, apt_id 1, 2595, LES
+#Jon, apt_id 2, 3995, LES
+#Bill, apt_id 14, 3995, LES
