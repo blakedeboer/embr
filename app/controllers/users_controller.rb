@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def results
-    @gender = session[:gender]
+    # @gender = session[:gender]
   end
 
 

@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107184644) do
+ActiveRecord::Schema.define(version: 20141112020546) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
     t.string   "room_type"
-    t.string   "apt_type"
+    t.string   "br_count"
+    t.string   "ba_count"
     t.integer  "price"
-    t.date     "available_date"
     t.integer  "hood_id"
     t.integer  "user_id"
     t.datetime "created_at"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20141107184644) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "email"
     t.integer  "age"
     t.string   "gender"
@@ -50,6 +49,8 @@ ActiveRecord::Schema.define(version: 20141107184644) do
     t.string   "prof_img"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

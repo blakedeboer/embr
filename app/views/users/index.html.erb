@@ -1,7 +1,12 @@
-<h1>Search for a host</h1>
+<h1>Users</h1>
 
-<%= form_tag("/", method: "post") do %>
-
- <%= select_tag(:gender, options_for_select([['male', 1], ['female', 2]])) %>
- <%= submit_tag("search") %>
+<% @users.each do |user| %>
+  <h3><%= user.first_name %></h3>
+  <img src=<%= user.prof_img %> height="98">
+  <ul>
+    <li><%= user.age %></li>
+    <li><%= user.gender %></li>
+    <li><%= user.looking_for %></li>
+    <li><%= user.orientation %></li>
+  </ul>
 <% end %>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   post '/' => 'users#search'
 
+
   get '/results' => 'users#results'
 
   get '/login' => 'users#login'
