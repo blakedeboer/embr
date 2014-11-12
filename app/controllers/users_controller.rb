@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    redirect_to index_path
   end
 
   def new
@@ -33,7 +34,11 @@ class UsersController < ApplicationController
 
   def results
     @gender = session[:gender]
-    
+  end
+
+
+  def login
+    @user = User.new
   end
 
 end
