@@ -65,28 +65,34 @@ class Scraper
     apartments_html = full_page_html.css("div.details")
     i = 1
     apartments_html.each do |apt|
-      unless Apartment.find_by(:address => "#{address(apt)}")
-        @apartment = Apartment.new
-        @apartment.address = address(apt)
-        @apartment.price = price(apt)
-        if first_detail(apt).include? "bath"
-          @apartment.br_count = "studio"
-          @apartment.ba_count = "1 bath"
-        elsif first_detail(apt).include? "bed"
-         @apartment.br_count = first_detail(apt)
+      if i < 4
+        unless Apartment.find_by(:address => "#{address(apt)}")
+          @apartment = Apartment.new
+          @apartment.address = address(apt)
+          @apartment.price = price(apt)
+          if first_detail(apt).include? "bath"
+            @apartment.br_count = "studio"
+            @apartment.ba_count = "1 bath"
+          elsif first_detail(apt).include? "bed"
+           @apartment.br_count = first_detail(apt)
+          end
+          if (mid_detail(apt).include? "bed") || (mid_detail(apt).include? "bath")
+           @apartment.ba_count = mid_detail(apt)
+          end
+          if (last_detail(apt).include? "bed") || (last_detail(apt).include? "bath")
+           @apartment.ba_count = last_detail(apt)
+          end
+          if Hood.find_by(:name => "#{hood(apt)}")
+            @apartment.hood_id = Hood.find_by(:name => "#{hood(apt)}").id
+          else
+            @apartment.build_hood(:name => "#{hood(apt)}")
+          end
+          @apartment.user_id = i
+          @apartment.save
         end
-        if (mid_detail(apt).include? "bed") || (mid_detail(apt).include? "bath")
-         @apartment.ba_count = mid_detail(apt)
-        end
-        if (last_detail(apt).include? "bed") || (last_detail(apt).include? "bath")
-         @apartment.ba_count = last_detail(apt)
-        end
-        if Hood.find_by(:name => "#{hood(apt)}")
-          @apartment.hood_id = Hood.find_by(:name => "#{hood(apt)}").id
-        else
-          @apartment.build_hood(:name => "#{hood(apt)}")
-        end
-        @apartment.save
+        i += 1
+      else
+        break
       end
     end
   end

@@ -9,9 +9,9 @@
 
 require_relative '../lib/assets/scraper'
 
-for i in 1..8
-  Scraper.new.create_apartments(i)
-end
+# for i in 1..8
+  Scraper.new.create_apartments(1)
+# end
 
 User.create(
   first_name: "Juan",
