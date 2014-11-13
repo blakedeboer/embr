@@ -1,0 +1,15 @@
+<%= @likee.first_name %>
+<p>
+<img width="100" height "100" src="<%= @likee.prof_img %>">
+</p>
+<%= @apt.address %>
+
+<p>
+<%= button_to "Naah", "/", :method => "post" %>
+<%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+</p>
+
+<a href="/users/<%= @liker.id %>/likes">My Matches</a>
+
+
+

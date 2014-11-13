@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112024212) do
+ActiveRecord::Schema.define(version: 20141113005718) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -32,10 +32,10 @@ ActiveRecord::Schema.define(version: 20141112024212) do
   end
 
   create_table "likes", force: true do |t|
-    t.integer  "liker"
-    t.integer  "likee"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "liker_id"
+    t.integer  "likee_id"
   end
 
   create_table "matches", force: true do |t|

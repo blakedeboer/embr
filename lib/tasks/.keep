@@ -7,6 +7,9 @@
 #select user that has not been shown before
 #gives error if price is too low
 
-#Juan, apt_id 1, 2595, LES
-#Jon, apt_id 2, 3995, LES
-#Bill, apt_id 14, 3995, LES
+#can't show users addresses - show obscure location on a map? 
+
+#use sessions rather than params to know what user is signed in
+
+User.joins(:apartment).joins(:likes).merge( Like.where(:liker_id => 4))
+

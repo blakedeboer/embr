@@ -30,19 +30,11 @@ class UsersController < ApplicationController
   def search
     session[:price] = params[:apartment][:price]
     session[:hood_id] = params[:apartment][:hood_id]
+    @user = User.find_by(:id => 4)
 
-    redirect_to results_path
+    redirect_to new_user_like_path(@user)
   end
 
-  def results
-    @price = session[:price]
-    @hood_id = session[:hood_id]
-
-    #Apartment.where("price < ? AND hood_id = ?", 3995, 1) => returns all apts for one hood
-    #Apartment.where("price < ? AND hood_id IN (?)", 3995, [1,2]) =>returns all for multiple hoods, 
-    @apt = Apartment.where("price < ? AND hood_id IN (?)", @price, [@hood_id]).first
-    @user = User.find(@apt.user_id)
-  end
 
   def login
     @user = User.new

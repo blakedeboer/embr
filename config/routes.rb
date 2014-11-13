@@ -7,16 +7,14 @@ Rails.application.routes.draw do
     resources :likes
   end
 
-  resources :users do
-    resources :matches
-  end
-
   root 'users#index'
 
   post '/' => 'users#search'
 
 
   get '/results' => 'users#results'
+
+  # post '/results' => 'users#'
 
   get '/login' => 'users#login'
 
