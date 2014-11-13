@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112024212) do
+ActiveRecord::Schema.define(version: 20141113191452) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141112024212) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "apt_img"
   end
 
   create_table "hoods", force: true do |t|
@@ -63,6 +64,7 @@ ActiveRecord::Schema.define(version: 20141112024212) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "apt_img"
   end
 
 end
