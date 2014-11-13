@@ -7,21 +7,36 @@ class UsersController < ApplicationController
   end
 
   def create
-    redirect_to index_path
+    #making a post request with signup info from the NEW form
+    @user = User.new
+
+    if @user.save
+      redirect_to('users/index')
+    else
+      render :new
+    end
+
   end
 
   def new
+    #this route should show a form for new user signup
+    @user = User.new
+    @user.save
   end
 
   def edit
+    #edit link from profile page
+    @user = User.find(params[:id])
   end
 
   def show
+    #profile page
     @user = User.find(params[:id])
     
   end
 
   def update
+    #post request send from edit route
   end
 
   def destroy  
@@ -45,7 +60,7 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.new
+    @user = User.new #not a new user...
   end
 
 end
