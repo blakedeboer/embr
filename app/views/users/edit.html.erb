@@ -1,1 +1,31 @@
-edit.html.erb
+<h1>Edit Your Profile</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+<br><br>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+<br><br>
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+<br><br>
+age - M/F
+<br><br>
+  <%= f.label :orientation %>
+  <%= f.text_field :orientation %>
+<br><br>
+  <%= f.label :looking_for %>
+  <%= f.text_field :looking_for %>
+<br><br>
+  <%= f.label :prof_img %>
+  <%= f.text_field :prof_img %>
+<br><br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+<br><br>
+<%= f.label :password %>
+  <%= f.password_field :password %>
+<br><br>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>
