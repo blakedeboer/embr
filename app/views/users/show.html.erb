@@ -1,25 +1,26 @@
-<h1> <%= @user.name %></h1>
+<h1> <%= @user.first_name %></h1>
 
 <img width="380" height "380" src="<%= @user.prof_img %>">
 
 <ul>
   <li><%= @user.age %></li>
-  <li><%= @user.email %></li>
+  <!-- <li><%#= @user.email %></li> -->
   <li><%= @user.gender %></li>
   <li><%= @user.orientation %></li>
   <li><%= @user.looking_for %></li>
 </ul>
 
 <h2>Apartment Info</h2>
-
+<img width="380" height "380" src="<%= @user.apt_img %>"><br>
 
 Address: <%= @user.apartment.address %><br>
 Room type: <%= @user.apartment.room_type %><br>
-Apartment type: <%= @user.apartment.apt_type %><br>
 Price ($/week): <%= @user.apartment.price %><br>
-Date Available: <%= @user.apartment.available_date %><br>
 
 <br>
 <a href="/">Home</a>
+
+#Should only be shown to the correct user
+<a href="/users/<%=@user.id%>/edit">Edit</a>
 
 

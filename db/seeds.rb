@@ -21,6 +21,7 @@ User.create(
   orientation: "straight",
   looking_for: "women",
   prof_img: "https://pbs.twimg.com/profile_images/3786193006/fd914ef5d5e4afd68ac0fcbf7c654e6e_400x400.jpeg",
+  apt_img: "http://enpundit.s3.amazonaws.com/wp-content/uploads/2012/09/new-york-apartment-1.jpeg"
   )
 
 User.create(
@@ -31,6 +32,7 @@ User.create(
   orientation: "straight",
   looking_for: "women",
   prof_img: "http://www.hollywoodreporter.com/sites/default/files/imagecache/blog_post_349_width/2013/03/jon_stewart.jpg",
+  apt_img: "http://kcbruski.files.wordpress.com/2010/05/p5130101.jpg"
   )
 
 User.create(
@@ -41,6 +43,7 @@ User.create(
   orientation: "straight",
   looking_for: "women",
   prof_img: "http://www.librarising.com/astrology/celebs/images2/B/billclinton.jpg",
+  apt_img: "http://www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg"
   )
 
 User.create(
@@ -50,7 +53,8 @@ User.create(
   gender: "female",
   orientation: "straight",
   looking_for: "men",
-  prof_img: "http://images6.fanpop.com/image/photos/32500000/Susan-Sarandon-susan-sarandon-32568088-2362-2813.jpg"
+  prof_img: "http://images6.fanpop.com/image/photos/32500000/Susan-Sarandon-susan-sarandon-32568088-2362-2813.jpg",
+  apt_img: "http://whygo-amr.s3.amazonaws.com/www.newyorklogue.com/files/2007/12/apartment.jpg"
   )
 
 User.create(
@@ -60,7 +64,8 @@ User.create(
   gender: "female",
   orientation: "straight",
   looking_for: "men",
-  prof_img: "http://www.finanzas.com/archivos/201303/amy.jpg"
+  prof_img: "http://www.finanzas.com/archivos/201303/amy.jpg",
+  apt_img: "http://photography.thetravelchica.com/USA/NYC/Around-Manhattan/i-PK5jrBN/0/L/NYC%20201211%20Apartment%20(2)-L.jpg"
   )
 
 User.create(
@@ -70,7 +75,8 @@ User.create(
   gender: "female",
   orientation: "straight",
   looking_for: "men",
-  prof_img: "http://jenniferlawrencefoundation.com/wp-content/uploads/2013/10/Lesdoit-Jennifer-Lawrence-blonde-hair1.jpg"
+  prof_img: "http://jenniferlawrencefoundation.com/wp-content/uploads/2013/10/Lesdoit-Jennifer-Lawrence-blonde-hair1.jpg",
+  apt_img: "http://www.homeadore.com/wp-content/uploads/2013/04/008-nyc-apartment-eisner-design.jpg"
   )
 
 
