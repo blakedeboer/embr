@@ -1,20 +1,16 @@
 Rails.application.routes.draw do
-  resources :apartments
-
-  resources :users
-
+  root 'users#index'
+  
   resources :users do
     resources :likes
   end
 
-  root 'users#index'
 
   post '/' => 'users#search'
 
+  get '/apartments' => 'apartments#index'
 
-  get '/results' => 'users#results'
-
-  # post '/results' => 'users#'
+  get '/results' => 'users#show'
 
   get '/login' => 'users#login'
 

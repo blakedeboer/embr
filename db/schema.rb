@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141113005718) do
-=======
-ActiveRecord::Schema.define(version: 20141113191452) do
->>>>>>> c0460f5f95065c69c13151bbaf0289c8f6899799
+ActiveRecord::Schema.define(version: 20141113232047) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -28,6 +24,11 @@ ActiveRecord::Schema.define(version: 20141113191452) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "apt_img"
+  end
+
+  create_table "dislikes", force: true do |t|
+    t.integer "disliker_id"
+    t.integer "dislikee_id"
   end
 
   create_table "hoods", force: true do |t|

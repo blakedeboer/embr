@@ -10,4 +10,5 @@ class Like < ActiveRecord::Base
     find_by("liker_id = ? AND likee_id = ?", like.likee_id, like.liker_id)
   end
 
+
 end
