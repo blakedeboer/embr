@@ -4,20 +4,19 @@ Rails.application.routes.draw do
   resources :users
 
   resources :users do
-    resources :likes
+    #get '/results' => 'likes#new'
+    resources :likes#, :except => [:new]
   end
 
   root 'users#index'
 
   post '/' => 'users#search'
 
-  get '/results' => 'likes#new'
-
   # post '/results' => 'users#'
 
   get '/login' => 'users#login'
 
-  get '/congrats' => 'likes#___'
+  get 'users/id/congrats' => 'likes#congrats'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

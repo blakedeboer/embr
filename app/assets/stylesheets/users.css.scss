@@ -1,3 +1,27 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.body{
+    color: rgb(255, 255, 255);
+    margin: 0 auto;
+    position: relative;
+    min-height: 825px;
+    margin-top: -20px;
+    background: url("http://c4.staticflickr.com/4/3840/14867493817_f7254e9846_h.jpg") no-repeat scroll 0px 100% / cover transparent;
+}
+
+.image{
+  background: url(timber-logo.png) no-repeat center;
+}
+
+.jumbotron{
+  opacity: 0.8;
+  width: 550px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 200px;
+  border-radius: 25px;
+}
