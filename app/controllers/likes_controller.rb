@@ -15,12 +15,23 @@ class LikesController < ApplicationController
     like = Like.new(:likee_id => likee_id, :liker_id => liker_id)
     like.save
 
-    redirect_to new_user_like_path
+    if false
+      redirect_to('/congrats')
+    else
+      redirect_to new_user_like_path
+    end
+    
   end
 
   def index
     @user = User.find(params[:user_id])
     @matches = @user.matches
+  end
+
+  #show page of your match and messaging
+  def show
+    @likee_id = params[:likee_id]
+    @liker_id = params[:user_id]
   end
 
 

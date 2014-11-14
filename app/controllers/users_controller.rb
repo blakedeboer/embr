@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     if @user.save
-      redirect_to('users/index')
+      redirect_to('/results')
     else
       render :new
     end

@@ -7,6 +7,8 @@
 #select user that has not been shown before
 #gives error if price is too low
 
+#fix the /results route
+
 #can't show users addresses - show obscure location on a map? 
 
 #use sessions rather than params to know what user is signed in
