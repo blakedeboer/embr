@@ -3,10 +3,12 @@
 <% @apartments.each do |apt| %>
   <h3><%= apt.address %></h3>
   <ul>
+    User name:<li><%= apt.user.first_name %></li>
     <li><%= apt.apt_img %></li>
     <li><%= apt.price %></li>
     <li><%= apt.br_count %></li>
     <li><%= apt.ba_count %></li>
     <li><%= apt.hood.name %></li>
+    Hood id:<li><%= apt.hood.id %></li>
   </ul>
 <% end %>

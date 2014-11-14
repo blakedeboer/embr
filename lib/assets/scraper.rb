@@ -65,7 +65,7 @@ class Scraper
     apartments_html = full_page_html.css("div.details")
     i = 1
     apartments_html.each do |apt|
-      if i < 4
+      if i < 5
         unless Apartment.find_by(:address => "#{address(apt)}")
           @apartment = Apartment.new
           @apartment.address = address(apt)

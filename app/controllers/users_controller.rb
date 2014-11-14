@@ -44,7 +44,7 @@ class UsersController < ApplicationController
   def search
     session[:price] = params[:apartment][:price]
     session[:hood_id] = params[:apartment][:hood_id]
-    @user = User.find_by(:id => 4)
+    @user = User.find_by(:id => 6)
 
     redirect_to new_user_like_path(@user)
   end

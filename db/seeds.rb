@@ -47,13 +47,34 @@ User.create(
   )
 
 User.create(
+  first_name: "Burt",
+  last_name: "Reynolds",
+  age: 45,
+  gender: "male",
+  orientation: "straight",
+  looking_for: "women",
+  prof_img: "https://atomicgator.files.wordpress.com/2011/07/burtreynolds-smokeybandit.jpg",
+  apt_img: "http://www.silversuitesny.com/wp-content/uploads/2013/01/short-term-furnished-apartments-nyc-1000x445.jpg"
+  )
+
+User.create(
+  first_name: "Mickey",
+  last_name: "Avalon",
+  age: 23,
+  gender: "male",
+  orientation: "straight",
+  looking_for: "women",
+  prof_img: "http://highlineballroom.com/assets/Mickey-Avalon-1-652x367-538x301.jpg"
+  )
+
+User.create(
   first_name: "Susan",
   last_name: "Sarandon",
   age: 29,
   gender: "female",
   orientation: "straight",
   looking_for: "men",
-  prof_img: "http://images6.fanpop.com/image/photos/32500000/Susan-Sarandon-susan-sarandon-32568088-2362-2813.jpg",
+  prof_img: "http://content8.flixster.com/rtactor/40/45/40458_pro.jpg",
   apt_img: "http://whygo-amr.s3.amazonaws.com/www.newyorklogue.com/files/2007/12/apartment.jpg"
   )
 

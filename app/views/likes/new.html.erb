@@ -1,18 +1,19 @@
+
 <%= render 'likes/header' %>
 
-<img width="200" height "200" src="http://imgur.com/pTq6iP2"><br>
-<h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
-<img width="200" height "200" src="<%= @likee.prof_img %>"><br>
-<img width="200" height "200" src="<%= @likee.apt_img %>"><br>
-<%= @apt.address %></a>
-<p>
-<%= button_to "Naah", "/", :method => "post" %>
-<%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
-</p>
+<% if @error %>
+  There are no users based on that criteria. Please go back and increase the price or change the neighborhood.
+<% else %>
+  <h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
+  <img width="200" height "200" src="<%= @likee.prof_img %>"><br>
+  <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
+  <%= @apt.address %></a>
 
 
+  <p>
+  <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
+  <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+  </p>
 
-<a href="/users/<%= @liker.id %>/likes">My Matches</a>
-
-
-
+  <a href="/users/<%= @liker.id %>/likes">My Matches</a>
+<% end %>

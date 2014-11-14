@@ -4,7 +4,7 @@
 #any price
 #any hood
 #select multiple hoods and search for all
-#select user that has not been shown before
+#search for guests if you're a user
 #gives error if price is too low
 
 #fix the /results route
@@ -12,6 +12,18 @@
 #can't show users addresses - show obscure location on a map? 
 
 #use sessions rather than params to know what user is signed in
+
+CRITICAL PATH
+-search criteria (above)
+-messaging
+-search by distance(geocoder gem and google api(tell distance)) - geokit??
+-what assets a guest has to offer
+
+SORT BY
+-price
+-location
+-age
+-most_recent
 
 User.joins(:apartment).joins(:likes).merge( Like.where(:liker_id => 4))
 
