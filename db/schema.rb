@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20141113191452) do
+ActiveRecord::Schema.define(version: 20141115171802) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -71,6 +70,7 @@ ActiveRecord::Schema.define(version: 20141113191452) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "apt_img"
+    t.integer  "budget"
   end
 
 end

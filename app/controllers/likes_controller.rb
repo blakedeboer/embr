@@ -1,14 +1,21 @@
 class LikesController < ApplicationController
 
-  def new
-    @liker = User.find(params[:user_id])
-    users = @liker.unviewed_users.filtered_apts(session[:price], session[:hood_id])
-    if users.count == 0 
-      @error = true 
-    else 
+  def new #route name: new_user_like_path
+    @liker = User.find(session[:user_id])
+    price = session[:price]
+    hood_id = session[:hood_id]
+
+    if @liker.guest?
+      users = @liker.potential_hosts(price, hood_id)
+    else
+      users = @liker.potential_guests(price)
+    end
+    if users.count == 0
+      @error = true
+    else
       @error = false
       @likee = users.first
-      @apt = @likee.apartment
+      @likee.host? ? @apt = @likee.apartment : @asset = ""
     end
   end
 
@@ -24,7 +31,7 @@ class LikesController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
     @matches = @user.matches
     @matches.count == 0 ? @error = true : @error = false
   end

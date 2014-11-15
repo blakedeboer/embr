@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
 
   def index
-    @price_array = (0..4000).step(100).to_a
-    @hood_names = Hood.all.map{|hood| [hood.name, hood.id]}
+    @price_array = (500..4000).step(500).to_a.insert(0, 'any price')
+    hood_array = Hood.all.map{|hood| [hood.name, hood.id]}
+    @hood_array = hood_array.insert(0, 'any neighborhood')
+    session[:user_id] = 8
+
+    @user_is_guest = User.find(session[:user_id]).guest? 
   end
 
   def create
@@ -30,8 +34,7 @@ class UsersController < ApplicationController
 
   def show
     #profile page
-    @user = User.find(params[:id])
-    
+    @user = User.find(params[:id])  
   end
 
   def update
@@ -42,9 +45,11 @@ class UsersController < ApplicationController
   end
 
   def search
+    @user = User.find(session[:user_id])
     session[:price] = params[:apartment][:price]
-    session[:hood_id] = params[:apartment][:hood_id]
-    @user = User.find_by(:id => 6)
+    if @user.guest?
+      session[:hood_id] = params[:apartment][:hood_id]
+    end
 
     redirect_to new_user_like_path(@user)
   end

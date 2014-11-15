@@ -13,8 +13,10 @@
       <%= form_tag("/", method: "post") do %>
         <%= label_tag(:price, "Price") %>
         <%= select(:apartment, :price, @price_array)%>
-        <%= label_tag(:hood_id, "Neighborhood") %>
-        <%= select(:apartment, :hood_id, options_for_select(@hood_names)) %>
+        <% if @user_is_guest %> 
+          <%= label_tag(:hood_id, "Neighborhood") %>
+          <%= select(:apartment, :hood_id, options_for_select(@hood_array)) %>
+        <% end %>
         <br>
         <%= button_tag(type: "submit", class: "btn btn-default btn-lg") do %>
           Search <i class="icon-repeat"></i>
@@ -28,8 +30,5 @@
 </html>
 
 
-<!--  <div class="cover"> 
 
-  
-</div> 
- -->
+ <!-- nil, placeholder: "enter price" -->

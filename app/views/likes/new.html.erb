@@ -2,12 +2,15 @@
 <%= render 'likes/header' %>
 
 <% if @error %>
-  There are no users based on that criteria. Please go back and increase the price or change the neighborhood.
+  There are no users based on that criteria. To find users, go back and adjust your search criteria.
 <% else %>
   <h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
   <img width="200" height "200" src="<%= @likee.prof_img %>"><br>
-  <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
-  <%= @apt.address %></a>
+  <% if @liker.guest? %>
+    <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
+    <%= @apt.address %>
+  <% end %>
+  </a>
 
 
   <p>

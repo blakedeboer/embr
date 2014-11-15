@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
     self.where("gender = ? AND orientation = ? AND looking_for = ?", "male", "straight", "women")
   end
 
-  def self.filtered_apts(price, hood_id)
-     self.joins(:apartment).merge( Apartment.select_apartments(price, hood_id))
+  def self.current_user
+    self.find(session[:user_id])
   end
 
   def has_liked?
@@ -48,6 +48,26 @@ class User < ActiveRecord::Base
       end
     end
     matches
+  end
+
+  def potential_guests(budget)
+    if budget == 'any price'
+      self.unviewed_users
+    else
+      self.unviewed_users.where("budget > ?", budget)
+    end
+  end
+
+  def potential_hosts(price, hood_id)
+    if price == 'any price' && hood_id == 'any neighborhood'
+      self.unviewed_users
+    elsif price == 'any_price' && hood_id != 'any neighborhood'
+      self.unviewed_users.joins(:apartment).merge( Apartment.apts_by_hood(hood_id))
+    elsif price != 'any_price' && hood_id == 'any neighborhood'
+      self.unviewed_users.joins(:apartment).merge( Apartment.apts_by_price(price))
+    else
+      self.unviewed_users.joins(:apartment).merge( Apartment.apts_by_price_and_hood(price, hood_id))
+    end
   end
 
   def unviewed_users #=> returns users
@@ -78,6 +98,10 @@ class User < ActiveRecord::Base
 
   def host?
     self.apartment ? true : false
+  end
+
+  def guest?
+    self.apartment ? false : true
   end
 
   def has_new_match?

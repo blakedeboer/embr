@@ -1,29 +1,39 @@
-#convert price on search page from integer to number
 
-#Search
-#any price
-#any hood
-#select multiple hoods and search for all
-#search for guests if you're a user
-#gives error if price is too low
 
-#fix the /results route
-
-#can't show users addresses - show obscure location on a map? 
-
-#use sessions rather than params to know what user is signed in
-
-CRITICAL PATH
--search criteria (above)
+CRITICAL
+-show street name and hood name, no street number (J.O.)
+-finalize seed data
+-guests additional search field
+-congratulations page
+-my matches page
 -messaging
+
+WANTS
+-login/signing with devise
+-search multiple hoods at once
+-sort by: price, age, most-recent, location
 -search by distance(geocoder gem and google api(tell distance)) - geokit??
 -what assets a guest has to offer
 
-SORT BY
--price
--location
--age
--most_recent
+
+
+
+GUEST SEARCH FIELDS
+-Looking for: 
+  "only in town for the weekend"
+  "looking for the 'one'"
+  "a little from column A, a little from column B"
+
+-My idea of the perfect first date
+  "skydiving"
+  "dinner at Per Se"
+  "dinner and a movie"
+
+-How much do I hate my ex
+  -
+  -
+  -
 
 User.joins(:apartment).joins(:likes).merge( Like.where(:liker_id => 4))
+
 
