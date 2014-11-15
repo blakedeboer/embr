@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def index
     @price_array = (0..4000).step(100).to_a
     @hood_names = Hood.all.map{|hood| [hood.name, hood.id]}
+    session[:user_id] = 2
   end
 
   def create

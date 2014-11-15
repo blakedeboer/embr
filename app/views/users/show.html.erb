@@ -1,3 +1,4 @@
+<%= render 'users/header' %>
 <h1> <%= @user.first_name %></h1>
 
 <img width="380" height "380" src="<%= @user.prof_img %>">
@@ -22,5 +23,23 @@ Price ($/week): <%= @user.apartment.price %><br>
 
 #Should only be shown to the correct user
 <a href="/users/<%=@user.id%>/edit">Edit</a>
+
+<!-- BOOTSTRAP -->
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <img alt="Img 0872" src="<%= @user.prof_img %>">
+        <img alt="Img 0872" src="<%= @user.prof_img %>">
+      </div>
+        <div class="caption">
+          <h2><%= @user.first_name %></h2>
+          <p>...</p>
+          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
