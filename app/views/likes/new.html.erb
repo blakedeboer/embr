@@ -1,22 +1,30 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
 
-<%= render 'likes/header' %>
-
-<% if @error %>
-  There are no users based on that criteria. To find users, go back and adjust your search criteria.
-<% else %>
-  <h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
-  <img width="200" height "200" src="<%= @likee.prof_img %>"><br>
-  <% if @liker.guest? %>
-    <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
-    <%= @apt.address %>
-  <% end %>
-  </a>
+    <%= render 'likes/header' %>
 
 
-  <p>
-  <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
-  <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
-  </p>
+    <% if @error %>
+      There are no users based on that criteria. To find users, go back and adjust your search criteria.
+    <% else %>
+      <h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
+      <img width="200" height "200" src="<%= @likee.prof_img %>"><br>
+      <% if @liker.guest? %>
+        <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
+        <%= @apt.address %>
+      <% end %>
+      </a>
 
-  <a href="/users/<%= @liker.id %>/likes">My Matches</a>
-<% end %>
+      <p>
+      <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
+      <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+      </p>
+
+      <a href="/users/<%= @liker.id %>/likes">My Matches</a>
+    <% end %>
+
+  </body>
+</html>

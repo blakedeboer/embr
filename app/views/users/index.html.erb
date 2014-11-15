@@ -6,9 +6,10 @@
 <body background="http://c4.staticflickr.com/4/3840/14867493817_f7254e9846_h.jpg">
   <%= render 'users/header' %>
   
-  <div class="jumbotron">
-    <div class="container">  
-      <h1>It's Going Down</h1>
+  <div style="background:black !important" class="jumbotron jumbo-inverse text-center">
+    <div class="container"> 
+      <img id="timber-logo" alt="timber" src="<%= asset_path 'timber2.png' %>"> 
+      <h3>it's going down</h3>
 
       <%= form_tag("/", method: "post") do %>
         <%= label_tag(:price, "Price") %>
@@ -19,9 +20,9 @@
         <% end %>
         <br>
         <%= button_tag(type: "submit", class: "btn btn-default btn-lg") do %>
-          Search <i class="icon-repeat"></i>
+          search <i class="icon-repeat"></i>
         <% end %>
-        <a class="btn btn-primary btn-lg" href="/users/new">Sign Up</a>
+        <a class="btn btn-danger btn-lg" href="/users/new">sign up</a>
       <% end %>
     </div>
 </div>
