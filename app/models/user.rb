@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # # Include default devise modules. Others available are:
+  # # :confirmable, :lockable, :timeoutable and :omniauthable
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :users
 
   has_one :apartment
@@ -117,6 +121,15 @@ class User < ActiveRecord::Base
 
   def has_new_match?
     
+  end
+
+  def authenticate(password)
+    if self.password == password
+      return true
+    else
+      return false
+    end    
+
   end
 
 end

@@ -4,9 +4,12 @@ class UsersController < ApplicationController
     @price_array = (500..4000).step(500).to_a.insert(0, 'any price')
     hood_array = Hood.all.map{|hood| [hood.name, hood.id]}
     @hood_array = hood_array.insert(0, 'any neighborhood')
-    session[:user_id] = 1
-
-    @user_is_guest = User.find(session[:user_id]).guest? 
+    # session[:user_id] = 1
+    if session[:user_id] 
+      @user_is_guest = User.find(session[:user_id]).guest? 
+    else
+      redirect_to login_path
+    end
   end
 
   def create
