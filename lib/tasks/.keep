@@ -7,6 +7,7 @@ CRITICAL
 -congratulations page
 -my matches page
 -messaging
+-adjust price unit ($/day) and show a dollar sign rather than integer in the show page
 
 WANTS
 -login/signing with devise
