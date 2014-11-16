@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'users#login'
 
-  get 'users/:id/congrats' => 'likes#congrats', as: :users_id_congrats
+  get 'users/:user_id/congrats/:id' => 'likes#congrats', as: :users_id_congrats
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

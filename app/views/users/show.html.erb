@@ -1,3 +1,5 @@
+<!-- Add in like functionality from the show page or at least have a back button -->
+
 <%= render 'users/header' %>
 <!-- <a href="/users/<%#=@user.id%>/edit">Edit</a> -->
 
@@ -12,32 +14,37 @@
     </div>
   </div>
 
-  <div class="col-md-offset-4 col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-heading center">
-        <img alt="Img 0872" src="<%= @user.apt_img %>" class="img-nice-square">
-      </div>
-        <div class="caption">
-          <p>
-            <h2><%= @user.first_name %>, <%= @user.age %></h2>
-            <!-- ul>
-              <li><%#= @user.age %></li>
-            </ul> -->
-          </p>  
-          <p>
-            <h4><%= @user.apartment.hood.name %></h4>
-            <ul>
-              <li>Address: <%= @user.apartment.address %></li>
-              <li>Room type: <%= @user.apartment.room_type %></li>
-              <li>Price ($/week): <%= @user.apartment.price %></li>
-            </ul>
-          </p>
-          <p><a href="#" class="btn btn-danger" role="button"><%= fa_icon "close"%></a> <a href="#" class="btn btn-default" role="button"><%= fa_icon "heart" %></a></p>
+  
+    <div class="col-md-offset-4 col-md-4">
+      <div class="panel panel-default">
+        <div class="panel-heading center">
+          <img alt="Img 0872" src="<%= @user.apt_img %>" class="img-nice-square">
+        </div>
+          <div class="caption">
+            <p>
+              <h2><%= @user.first_name %>, <%= @user.age %></h2>
+              <!-- ul>
+                <li><%#= @user.age %></li>
+              </ul> -->
+            </p> 
+          <% if @user.host? %> 
+            <p>
+              <h4><%= @user.apartment.hood.name %></h4>
+              <ul>
+                <li>Address: <%= @user.apartment.address %></li>
+                <li>Room type: <%= @user.apartment.room_type %></li>
+                <li>Price ($/week): <%= @user.apartment.price %></li>
+              </ul>
+            </p>
+          <% end %>
+            <p>
+              <a href="#" class="btn btn-danger" role="button"><%= fa_icon "close"%></a> 
+              <a href="#" class="btn btn-default" role="button"><%= fa_icon "heart" %></a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
   </div>
-
 
 
 

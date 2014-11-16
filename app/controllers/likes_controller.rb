@@ -30,9 +30,8 @@ class LikesController < ApplicationController
       dislike.save
     end
 
-    if @liker.new_match?(params[:likee_id])
-      session[:likee_id] = params[:likee_id]       
-      redirect_to users_id_congrats_path(session[:user_id])
+    if @liker.new_match?(params[:likee_id])     
+      redirect_to users_id_congrats_path(session[:user_id], params[:likee_id])
     else
       redirect_to new_user_like_path
     end
@@ -51,8 +50,8 @@ class LikesController < ApplicationController
   end
 
   def congrats
-    @liker = User.find(session[:user_id])
-    @likee = User.find(session[:likee_id])
+    @liker = User.find(params[:user_id])
+    @likee = User.find(params[:id])
   end
 
 

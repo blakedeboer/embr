@@ -1,1 +1,17 @@
-hello
+<% @liker.conversation_with(@likee.id).each do |message| %>
+
+<p><%= message.content%></p>
+
+
+<% end %>
+
+
+<!-- <textarea class="form-control" rows="3"></textarea> -->
+<%= form_tag("users/#{@liker.id}/messages", method: "post", class: "form_control", rows: "3") do %>
+<!--   <div class="form-control" rows="3"> -->
+  <%= text_area_tag(:message) %>
+
+  <%= submit_tag("Send", class: "btn btn-danger") %>
+
+<!-- <a href=<%=%> class="btn btn-danger" role="button">Send</a>  -->
+<% end %>

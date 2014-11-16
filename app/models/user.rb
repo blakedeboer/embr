@@ -119,6 +119,12 @@ class User < ActiveRecord::Base
     
   end
 
+  def conversation_with(recipient_id)
+    current_user_messages = Message.messages(self.id, recipient_id)
+    recipient_messages = Message.messages(recipient_id, self.id)
+    conversation = (current_user_messages + recipient_messages).sort_by(&:created_at)
+  end
+
 end
 
 

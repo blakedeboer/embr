@@ -3,29 +3,17 @@
 <h1>It's a match!</h1>
 <!-- INSERT GIF HERE -->
 
-
-
 <h3>You and <%= @likee.first_name %> have liked each other.</h3>
 <br>
-
-
 <!-- picture of the matching couple -->
 <img width="100" height "100" src="<%= @liker.prof_img %>">
 <img width="100" height "100" src="<%= @likee.prof_img %>">
 
-
 <!-- Messages button -->
-<a href="#">Messages</a>
-
+<a href="<%= user_message_path(@liker.id, @likee.id) %>" class="btn btn-danger" role="button">Message</a> 
 
 <!-- Continue searching button  -->
-
-
+<a href="#" class="btn btn-default" role="button">Keep Playing</a></p>
 
 <!-- show page button  -->
-
-
-
-
-
-
+<a href="#" class="btn btn-danger" role="button">View Profile</a></p>
