@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20141113232047) do
-
+ActiveRecord::Schema.define(version: 20141115221917) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -47,6 +45,14 @@ ActiveRecord::Schema.define(version: 20141113232047) do
   end
 
   create_table "matches", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: true do |t|
+    t.integer  "to_id"
+    t.integer  "from_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

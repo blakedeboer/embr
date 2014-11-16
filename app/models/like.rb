@@ -9,6 +9,4 @@ class Like < ActiveRecord::Base
   def self.has_a_match(like) #=> returns matching like, or nil if doesn't exist
     find_by("liker_id = ? AND likee_id = ?", like.likee_id, like.liker_id)
   end
-
-
 end

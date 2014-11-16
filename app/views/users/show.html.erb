@@ -1,45 +1,43 @@
 <%= render 'users/header' %>
-<h1> <%= @user.first_name %></h1>
+<!-- <a href="/users/<%#=@user.id%>/edit">Edit</a> -->
 
-<img width="380" height "380" src="<%= @user.prof_img %>">
 
-<ul>
-  <li><%= @user.age %></li>
-  <!-- <li><%#= @user.email %></li> -->
-  <li><%= @user.gender %></li>
-  <li><%= @user.orientation %></li>
-  <li><%= @user.looking_for %></li>
-</ul>
-
-<h2>Apartment Info</h2>
-<img width="380" height "380" src="<%= @user.apt_img %>"><br>
-
-Address: <%= @user.apartment.address %><br>
-Room type: <%= @user.apartment.room_type %><br>
-Price ($/week): <%= @user.apartment.price %><br>
-
-<br>
-<a href="/">Home</a>
-
-#Should only be shown to the correct user
-<a href="/users/<%=@user.id%>/edit">Edit</a>
-
-<!-- BOOTSTRAP -->
 <div class="row">
-  <div class="col-md-offset-2 col-md-8">
+
+  <div class="col-md-offset-4 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading center">
-        <img alt="Img 0872" src="<%= @user.prof_img %>">
-        <img alt="Img 0872" src="<%= @user.prof_img %>">
+        <img alt="Img 0872" src="<%= @user.prof_img %>" class="img-circle" style>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-offset-4 col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <img alt="Img 0872" src="<%= @user.apt_img %>" class="img-nice-square">
       </div>
         <div class="caption">
-          <h2><%= @user.first_name %></h2>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          <p>
+            <h2><%= @user.first_name %>, <%= @user.age %></h2>
+            <!-- ul>
+              <li><%#= @user.age %></li>
+            </ul> -->
+          </p>  
+          <p>
+            <h4><%= @user.apartment.hood.name %></h4>
+            <ul>
+              <li>Address: <%= @user.apartment.address %></li>
+              <li>Room type: <%= @user.apartment.room_type %></li>
+              <li>Price ($/week): <%= @user.apartment.price %></li>
+            </ul>
+          </p>
+          <p><a href="#" class="btn btn-danger" role="button"><%= fa_icon "close"%></a> <a href="#" class="btn btn-default" role="button"><%= fa_icon "heart" %></a></p>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+
 
 

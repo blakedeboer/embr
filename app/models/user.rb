@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :likes, :foreign_key => 'likee_id'
   has_many :dislikes, :foreign_key => 'disliker_id'
   has_many :dislikes, :foreign_key => 'dislikee_id' 
+  has_many :messages, :foreign_key => 'from_id'
+  has_many :messages, :foreign_key => 'to_id'
 
 
   def self.have_apts
@@ -48,6 +50,15 @@ class User < ActiveRecord::Base
       end
     end
     matches
+  end
+
+  def new_match?(likee_id)
+    all_matches = self.matches
+    all_matches.each do |user|
+      if user.id == likee_id
+        true
+      end
+    end
   end
 
   def potential_guests(budget)

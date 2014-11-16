@@ -8,23 +8,70 @@
 
 
     <% if @error %>
-      There are no users based on that criteria. To find users, go back and adjust your search criteria.
-    <% else %>
-      <h1><a href="/users/<%= @likee.id %>"><%= @likee.first_name %></h1>
-      <img width="200" height "200" src="<%= @likee.prof_img %>"><br>
+      <h1>There are no users based on that criteria. To find users, go back and adjust your search criteria.</h1>
+
+    <% else %>      
       <% if @liker.guest? %>
-        <img width="200" height "200" src="<%= @likee.apt_img %>"><br>
-        <%= @apt.address %>
+        <div class="row">
+          <div class="col-md-offset-4 col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading center">
+                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle" style>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-offset-3 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading center">
+                <img alt="Img 0872" src="<%= @likee.apt_img %>" class="img-circle" style="border-radius: 800px">
+              </div>
+                <div class="caption">
+                  <p>
+                    <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
+                  </p>  
+                  <p>
+                    <h4><%= @likee.apartment.hood.name %></h4>
+                    <ul>
+                      <li>Address: <%= @likee.apartment.address %></li>
+                      <li>Room type: <%= @likee.apartment.room_type %></li>
+                      <li>Price ($/week): <%= @likee.apartment.price %></li>
+                    </ul>
+                  </p>
+                  <p><a href="#" class="btn btn-danger" role="button">X</a> <a href="#" class="btn btn-default" role="button"><3</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      <% else %>  
+        <div class="col-md-offset-3 col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading center">
+                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle">
+              </div>
+                <div class="caption">
+                  <p>
+                    <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
+                  </p>  
+                  <p>
+                    <a href="#" class="btn btn-danger" role="button"><3</a> 
+                    <a href="#" class="btn btn-default" role="button">X</a>
+                    <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
+                    <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
       <% end %>
+      
       </a>
 
       <p>
-      <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
-      <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
-      </p>
-
-      <a href="/users/<%= @liker.id %>/likes">My Matches</a>
+     
     <% end %>
 
   </body>
-</html>
+  </html>

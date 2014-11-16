@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     #get '/results' => 'likes#new'
     resources :likes#, :except => [:new]
+    resources :messages
   end
 
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'users#login'
 
-  get 'users/id/congrats' => 'likes#congrats'
+  get 'users/:id/congrats' => 'likes#congrats', as: :users_id_congrats
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
