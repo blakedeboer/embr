@@ -17,11 +17,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-
+    <% if session[:user_id] %>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Matches", user_likes_path(User.find(session[:user_id])) %></li>
         <li><%= link_to "#{User.find(session[:user_id]).first_name}", user_path(User.find(session[:user_id])) %></li>
-        
+    <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->

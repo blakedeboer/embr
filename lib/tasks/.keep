@@ -1,12 +1,16 @@
 
 
 CRITICAL
--show street name and hood name, no street number (J.O.)
+-show street name no street number (J.O.)
 -finalize seed data
 -guests additional search field
--congratulations page
--my matches page
--messaging
+-congratulations page - FRONT END
+-my matches page - FRONT END
+-messaging - FRONT END AND BACK END
+-adjust price unit ($/day) and show a dollar sign rather than integer in the show page
+
+FRONT END CRITICAL
+
 
 WANTS
 -login/signing with devise

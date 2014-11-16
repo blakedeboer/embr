@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # # Include default devise modules. Others available are:
+  # # :confirmable, :lockable, :timeoutable and :omniauthable
+  # devise :database_authenticatable, :registerable,
+  #        :recoverable, :rememberable, :trackable, :validatable
   attr_accessor :users
 
   has_one :apartment
@@ -119,10 +123,19 @@ class User < ActiveRecord::Base
     
   end
 
+
   def conversation_with(recipient_id)
     current_user_messages = Message.messages(self.id, recipient_id)
     recipient_messages = Message.messages(recipient_id, self.id)
     conversation = (current_user_messages + recipient_messages).sort_by(&:created_at)
+  end
+
+  def authenticate(password)
+    if self.password == password
+      return true
+    else
+      return false
+    end    
   end
 
 end

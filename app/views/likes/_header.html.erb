@@ -18,8 +18,8 @@
 
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Matches", root_path %></li>
-        <li><%= link_to "#{User.find(session[:user_id]).first_name}", root_path %></li>
+        <li><%= link_to "Matches", user_likes_path(User.find(session[:user_id])) %></li>
+        <li><%= link_to "#{User.find(session[:user_id]).first_name}", user_path(User.find(session[:user_id])) %></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->

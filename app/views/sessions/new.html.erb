@@ -1,0 +1,19 @@
+<%= render 'users/header' %>
+<h1>Login</h1>
+
+<%= form_tag(sessions_path) do |f| %>
+  <p>
+  <%= label_tag(:email, "Email:") %>
+  <%= text_field_tag(:email) %>
+  </p>
+  <p>
+  <%= label_tag(:password, "Password:") %>
+  <%= password_field_tag(:password) %>
+  </p>
+
+  <%= submit_tag("Log in", class: "btn btn-primary") %>
+<% end %>
+<h6>Don't have an account? <a href="/users/new">Sign up</a> </h6>
+
+
+

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'users#index'
   
   resources :users do
@@ -14,7 +15,11 @@ Rails.application.routes.draw do
 
   get '/results' => 'users#show'
 
-  get '/login' => 'users#login'
+  get '/login' => 'sessions#new'
+
+  get '/logout' => 'sessions#destroy'
+
+  post '/sessions' => 'sessions#create'
 
   get 'users/:user_id/congrats/:id' => 'likes#congrats', as: :users_id_congrats
 
