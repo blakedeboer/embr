@@ -17,7 +17,7 @@
   </a>
   <div class="media-body">
     <h4 class="media-heading"><%=match.first_name%>, <%=match.age%></h4>
-    <a href="#" class="btn btn-danger" role="button">Message</a> 
+    <a href="<%= user_message_path(@user.id, match.id) %>" class="btn btn-danger" role="button">Message</a>  
     <a href="/users/<%= match.id %>" class="btn btn-default" role="button">View Profile</a>
   </div>
   <% end %>
