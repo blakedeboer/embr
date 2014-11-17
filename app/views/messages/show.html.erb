@@ -8,22 +8,25 @@
         <img alt="Img 0872" src="<%= @likee.prof_img %>" width="250px" height "250">
       </div>
         <div class="caption">
-          <p>
-            <h2><%= @likee.first_name %></h2>
-          </p>  
-          <p>
-            <% @liker.conversation_with(@likee.id).each do |message| %>
-            <p><%= message.content%></p>
-            <% end %>     
-          </p>
-          <p>
-            <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", class: "form_control", rows: "3") do %>
-              <%= label_tag(:content, "Send a new message") %>
-              <%= text_area_tag(:content) %>
-              <%= submit_tag("Send") %>
-            <% end %>
-          </p>
+          <div class="center block">
+            <p class="text-center">
+              <h2><%= @likee.first_name %></h2>
+            </p>  
+            <p class="text-right">
+              <% @liker.conversation_with(@likee.id).each do |message| %>
+              <p><%= User.find(message.from_id).first_name %>:
+              <%= message.content%></p>
+              <% end %>     
+              <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
+                <%= text_area_tag(:content) %><br>
+                <%= submit_tag("Send", class: "btn btn-danger")%>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  <!-- class: "form_control" -->
