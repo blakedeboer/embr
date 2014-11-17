@@ -16,15 +16,17 @@
           <div class="col-md-offset-4 col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle" style>
+                <a href="<%= user_path(@likee.id) %>">
+                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-nice-square" style></a>
               </div>
             </div>
           </div>
 
-          <div class="col-md-offset-3 col-md-6">
+          <div class="col-md-offset-4 col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.apt_img %>" class="img-circle" style="border-radius: 800px">
+                <a href="<%= user_path(@likee.id) %>">
+                <img alt="Img 0872" src="<%= @likee.apt_img %>" class="img-nice-square"></a>
               </div>
                 <div class="caption">
                   <p>
@@ -56,7 +58,7 @@
         <div class="col-md-offset-3 col-md-6">
             <div class="panel panel-default">
               <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle">
+                <a href="<%= user_path(@likee.id) %>"><img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-nice-square"></a>
               </div>
                 <div class="caption">
                   <p>
@@ -71,7 +73,7 @@
                   <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:likee_id => @likee.id}, class: "btn btn-default" do %>
                       <i class="fa fa-heart"></i>
                     <% end %>
-                    
+
                   </p>
                 </div>
               </div>
@@ -79,11 +81,6 @@
           </div>
 
       <% end %>
-      
-      </a>
-
-      <p>
-     
     <% end %>
 
   </body>
