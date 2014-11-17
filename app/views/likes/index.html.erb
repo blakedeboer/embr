@@ -11,18 +11,16 @@
     <div class="panel-heading center">
       <% @matches.each do |match|%>
         <img width="250" height "250" src="<%= match.prof_img %>" class="img-thumbnail">
-      <% end %>
     </div>
       <div class="caption">
-        <% @matches.each do |match|%>
           <%= match.first_name %>
         
         <br>
-          <a href="#" class="btn btn-danger" role="button">Message</a> 
+          <a href="<%= user_message_path(@user.id, match.id) %>" class="btn btn-danger" role="button">Message</a> 
           <a href="/users/<%= match.id %>" class="btn btn-default" role="button">View Profile</a></p>
-          <% end %>
       </div>
   </div>
+      <% end %>
 </div>
 
   <!-- <a href="users/<#%= @user.id %>/likes/new">Find New Matches</a> -->

@@ -1,17 +1,29 @@
-<% @liker.conversation_with(@likee.id).each do |message| %>
-
-<p><%= message.content%></p>
+<%= render 'users/header' %>
 
 
-<% end %>
 
-
-<!-- <textarea class="form-control" rows="3"></textarea> -->
-<%= form_tag("users/#{@liker.id}/messages", method: "post", class: "form_control", rows: "3") do %>
-<!--   <div class="form-control" rows="3"> -->
-  <%= text_area_tag(:message) %>
-
-  <%= submit_tag("Send", class: "btn btn-danger") %>
-
-<!-- <a href=<%=%> class="btn btn-danger" role="button">Send</a>  -->
-<% end %>
+  <div class="col-md-offset-3 col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <img alt="Img 0872" src="<%= @likee.prof_img %>" width="250px" height "250">
+      </div>
+        <div class="caption">
+          <p>
+            <h2><%= @likee.first_name %></h2>
+          </p>  
+          <p>
+            <% @liker.conversation_with(@likee.id).each do |message| %>
+            <p><%= message.content%></p>
+            <% end %>     
+          </p>
+          <p>
+            <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", class: "form_control", rows: "3") do %>
+              <%= label_tag(:content, "Send a new message") %>
+              <%= text_area_tag(:content) %>
+              <%= submit_tag("Send") %>
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
