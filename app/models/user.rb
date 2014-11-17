@@ -56,6 +56,7 @@ class User < ActiveRecord::Base
     matches
   end
 
+
   def new_match?(likee_id) 
     new_match = self.matches.select {|user| user.id == likee_id}
     new_match.count > 0 ? true : false
