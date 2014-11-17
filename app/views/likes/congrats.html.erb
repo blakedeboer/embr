@@ -13,7 +13,7 @@
 <a href="<%= user_message_path(@liker.id, @likee.id) %>" class="btn btn-danger" role="button">Message</a> 
 
 <!-- Continue searching button  -->
-<a href="#" class="btn btn-default" role="button">Keep Playing</a></p>
+<%= button_to "Keep Playing", "/users/#{@liker.id}/likes/new", :method => "get", class: "btn btn-default" %>
 
 <!-- show page button  -->
-<a href="#" class="btn btn-danger" role="button">View Profile</a></p>
+<%= button_to "View Profile", "/users/#{@likee.id}", :method => "get", class: "btn btn-default" %>

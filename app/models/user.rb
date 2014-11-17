@@ -57,12 +57,8 @@ class User < ActiveRecord::Base
   end
 
   def new_match?(likee_id)
-    all_matches = self.matches
-    all_matches.each do |user|
-      if user.id == likee_id
-        true
-      end
-    end
+    new_match = self.matches.select {|user| user.id == likee_id}
+    new_match.count > 0 ? true : false
   end
 
   def potential_guests(budget)

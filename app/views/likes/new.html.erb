@@ -38,7 +38,15 @@
                       <li>Price ($/week): <%= @likee.apartment.price %></li>
                     </ul>
                   </p>
-                  <p><a href="#" class="btn btn-danger" role="button">X</a> <a href="#" class="btn btn-default" role="button"><3</a></p>
+
+                  <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:dislikee_id => @likee.id}, class: "btn btn-danger" do %>
+                    <i class="fa fa-close"></i>
+                  <% end %>
+
+                  <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:likee_id => @likee.id}, class: "btn btn-default" do %>
+                    <i class="fa fa-heart"></i>
+                  <% end %>
+
                 </div>
               </div>
             </div>
@@ -55,8 +63,8 @@
                     <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
                   </p>  
                   <p>
-                    <a href="#" class="btn btn-danger" role="button"><3</a> 
-                    <a href="#" class="btn btn-default" role="button">X</a>
+                    <a href="#" class="btn btn-danger" role="button"><%= fa_icon "heart" %></a> 
+                    <a href="#" class="btn btn-default" role="button"><%= fa_icon "close"%></a>
                     <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
                     <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
                   </p>

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
 
   get 'users/:user_id/congrats/:id' => 'likes#congrats', as: :users_id_congrats
+  
+  post 'users/:id/likes' => 'likes#create', as: :create_user_like
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
