@@ -1,12 +1,6 @@
 <%= render 'users/header' %>
 
-<div class="chat">
-<div class="bubble me">Hello there!</div>
-<div class="bubble you">Hi. I'm an expandeable chat box with box shadow. How are you? I expand horizontally and vertically, as you can see here.</div>
-<div class="bubble me">Awesome.</div>
-</div> 
-
-  <div class="col-md-offset-3 col-md-6">
+  <div class="col-md-offset-4 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading center">
         <img alt="Img 0872" src="<%= @likee.prof_img %>" width="250px" height "250">
@@ -15,11 +9,25 @@
           <p>
             <h2><%= @likee.first_name %></h2>
           </p>  
-          <p>
-            <% @liker.conversation_with(@likee.id).each do |message| %>
-            <p><%= message.content%></p>
-            <% end %>     
-          </p>
+
+          <!-- CHAT BOX -->
+          <div class="chat">
+            <p>
+              <% @liker.conversation_with(@likee.id).each do |message| %>
+                <% if message.from_id == @liker.id%>
+                  <%= image_tag(@liker.prof_img, height: '30', width: '30')%>
+                  <div class="bubble me">
+                    <p><%= message.content%></p>
+                  </div>
+                <% else %>
+                  <div class="bubble you">
+                    <p><%= message.content%></p>
+                  </div>
+                <% end %>
+              <% end %>     
+            </p>
+          </div>
+          
           <p>
             <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", class: "form_control", rows: "3") do %>
               <%= label_tag(:content, "Send a new message") %>
@@ -27,6 +35,7 @@
               <%= submit_tag("Send") %>
             <% end %>
           </p>
+
         </div>
       </div>
     </div>
