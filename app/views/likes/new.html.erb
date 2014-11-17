@@ -11,7 +11,7 @@
       <h1>There are no users based on that criteria. To find users, go back and adjust your search criteria.</h1>
 
     <% else %>      
-      <% if @liker.guest? %>
+    <% if @liker.guest? %>
         <div class="row">
           <div class="col-md-offset-4 col-md-4">
             <div class="panel panel-default">
@@ -38,7 +38,10 @@
                       <li>Price ($/week): <%= @likee.apartment.price %></li>
                     </ul>
                   </p>
-                  <p><a href="#" class="btn btn-danger" role="button">X</a> <a href="#" class="btn btn-default" role="button"><3</a></p>
+                  <p>
+                    <%= button_to "X", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post", :class => "btn btn-default" %>
+                    <%= button_to "<3", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post", :class => "btn btn-danger" %>
+                  </p>
                 </div>
               </div>
             </div>
@@ -55,10 +58,8 @@
                     <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
                   </p>  
                   <p>
-                    <a href="#" class="btn btn-danger" role="button"><3</a> 
-                    <a href="#" class="btn btn-default" role="button">X</a>
-                    <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
-                    <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+                    <%= button_to "X", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post", :class => "btn btn-default" %>
+                    <%= button_to "<3", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post", :class => "btn btn-danger" %>
                   </p>
                 </div>
               </div>
