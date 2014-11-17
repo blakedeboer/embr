@@ -12,6 +12,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @user = User.find(session[:user_id])
+    session[:price] = params[:apartment][:price]
+    if @user.guest?
+      session[:hood_id] = params[:apartment][:hood_id]
+    end
+
+    redirect_to new_user_like_path(@user)
+  end
+
   def create
     #making a post request with signup info from the NEW form
     @user = User.new
@@ -47,15 +57,6 @@ class UsersController < ApplicationController
   def destroy  
   end
 
-  def search
-    @user = User.find(session[:user_id])
-    session[:price] = params[:apartment][:price]
-    if @user.guest?
-      session[:hood_id] = params[:apartment][:hood_id]
-    end
-
-    redirect_to new_user_like_path(@user)
-  end
 
 
   def login

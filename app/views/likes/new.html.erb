@@ -11,7 +11,7 @@
       <h1>There are no users based on that criteria. To find users, go back and adjust your search criteria.</h1>
 
     <% else %>      
-      <% if @liker.guest? %>
+    <% if @liker.guest? %>
         <div class="row">
           <div class="col-md-offset-4 col-md-4">
             <div class="panel panel-default">
@@ -63,10 +63,15 @@
                     <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
                   </p>  
                   <p>
-                    <a href="#" class="btn btn-danger" role="button"><%= fa_icon "heart" %></a> 
-                    <a href="#" class="btn btn-default" role="button"><%= fa_icon "close"%></a>
-                    <%= button_to "Naah", "/users/#{@liker.id}/likes", :params => {:dislikee_id => @likee.id}, :method => "post" %>
-                    <%= button_to "Yup!", "/users/#{@liker.id}/likes", :params => {:likee_id => @likee.id}, :method => "post" %>
+
+                    <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:dislikee_id => @likee.id}, class: "btn btn-danger" do %>
+                      <i class="fa fa-close"></i>
+                    <% end %>
+
+                  <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:likee_id => @likee.id}, class: "btn btn-default" do %>
+                      <i class="fa fa-heart"></i>
+                    <% end %>
+                    
                   </p>
                 </div>
               </div>
