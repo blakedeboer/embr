@@ -9,7 +9,7 @@
   <div class="col-md-offset-4 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading center">
-        <img alt="Img 0872" src="<%= @user.prof_img %>" class="img-circle" style>
+        <img alt="Img 0872" src="<%= @user.prof_img %>" class="img-nice-square" style>
       </div>
     </div>
   </div>
@@ -31,15 +31,20 @@
             <p>
               <h4><%= @user.apartment.hood.name %></h4>
               <ul>
-                <li>Address: <%= @user.apartment.address %></li>
+                <li>Address: <%= @user.apartment.address.gsub(/^\d+\s/,"") %></li>
                 <li>Room type: <%= @user.apartment.room_type %></li>
                 <li>Price ($/week): <%= @user.apartment.price %></li>
               </ul>
             </p>
           <% end %>
             <p>
-              <a href="#" class="btn btn-danger" role="button"><%= fa_icon "close"%></a> 
-              <a href="#" class="btn btn-default" role="button"><%= fa_icon "heart" %></a>
+              <%= button_to "/users/#{@user.id}/likes", :method => "post", :params => {:dislikee_id => @user.id}, class: "btn btn-danger" do %>
+                    <i class="fa fa-close"></i>
+              <% end %>
+
+              <%= button_to "/users/#{@user.id}/likes", :method => "post", :params => {:likee_id => @user.id}, class: "btn btn-default" do %>
+                <i class="fa fa-heart"></i>
+              <% end %>
             </p>
           </div>
         </div>

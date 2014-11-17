@@ -11,52 +11,11 @@
       <h1>There are no users based on that criteria. To find users, go back and adjust your search criteria.</h1>
 
     <% else %>      
-    <% if @liker.guest? %>
-        <div class="row">
-          <div class="col-md-offset-4 col-md-4">
+    
+        <div class="col-md-offset-4 col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle" style>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-offset-3 col-md-6">
-            <div class="panel panel-default">
-              <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.apt_img %>" class="img-circle" style="border-radius: 800px">
-              </div>
-                <div class="caption">
-                  <p>
-                    <h2><%= @likee.first_name %>, <%= @likee.age %></h2>
-                  </p>  
-                  <p>
-                    <h4><%= @likee.apartment.hood.name %></h4>
-                    <ul>
-                      <li>Address: <%= @likee.apartment.address %></li>
-                      <li>Room type: <%= @likee.apartment.room_type %></li>
-                      <li>Price ($/week): <%= @likee.apartment.price %></li>
-                    </ul>
-                  </p>
-
-                  <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:dislikee_id => @likee.id}, class: "btn btn-danger" do %>
-                    <i class="fa fa-close"></i>
-                  <% end %>
-
-                  <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:likee_id => @likee.id}, class: "btn btn-default" do %>
-                    <i class="fa fa-heart"></i>
-                  <% end %>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-      <% else %>  
-        <div class="col-md-offset-3 col-md-6">
-            <div class="panel panel-default">
-              <div class="panel-heading center">
-                <img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-circle">
+                <a href="<%= user_path(@likee.id) %>"><img alt="Img 0872" src="<%= @likee.prof_img %>" class="img-nice-square"></a>
               </div>
                 <div class="caption">
                   <p>
@@ -71,19 +30,14 @@
                   <%= button_to "/users/#{@liker.id}/likes", :method => "post", :params => {:likee_id => @likee.id}, class: "btn btn-default" do %>
                       <i class="fa fa-heart"></i>
                     <% end %>
-                    
+
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
-      <% end %>
-      
-      </a>
-
-      <p>
-     
+    
     <% end %>
 
   </body>

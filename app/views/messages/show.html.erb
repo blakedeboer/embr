@@ -1,32 +1,43 @@
 <%= render 'users/header' %>
 
-
-
-  <div class="col-md-offset-3 col-md-6">
+  <div class="col-md-offset-4 col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading center">
         <img alt="Img 0872" src="<%= @likee.prof_img %>" width="250px" height "250">
       </div>
         <div class="caption">
-          <div class="center block">
-            <p class="text-center">
-              <h2><%= @likee.first_name %></h2>
-            </p>  
-            <p class="text-right">
+          <p>
+            <h2><%= @likee.first_name %></h2>
+          </p>  
+
+          <!-- CHAT BOX -->
+          <div class="chat">
+            <p>
               <% @liker.conversation_with(@likee.id).each do |message| %>
-              <p><%= User.find(message.from_id).first_name %>:
-              <%= message.content%></p>
+                <% if message.from_id == @liker.id%>
+                  <%= image_tag(@liker.prof_img, height: '30', width: '30')%>
+                  <div class="bubble me">
+                    <p><%= message.content%></p>
+                  </div>
+                <% else %>
+                  <div class="bubble you">
+                    <p><%= message.content%></p>
+                  </div>
+                <% end %>
               <% end %>     
-              <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
-                <%= text_area_tag(:content) %><br>
-                <%= submit_tag("Send", class: "btn btn-danger")%>
-              <% end %>
             </p>
           </div>
+          
+          <p>
+            <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
+              <%= label_tag(:content, "Send a new message") %>
+              <%= text_area_tag(:content) %>
+              <%= submit_tag("Send", , class: "btn btn-danger") %>
+            <% end %>
+          </p>
+
         </div>
       </div>
     </div>
   </div>
 
-
-  <!-- class: "form_control" -->
