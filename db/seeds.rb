@@ -78,16 +78,6 @@ User.create(
   apt_img: "http://whygo-amr.s3.amazonaws.com/www.newyorklogue.com/files/2007/12/apartment.jpg"
   )
 
-User.create(
-  first_name: "@hellothisiscass",
-  last_name: "Squirrel",
-  age: 24,
-  gender: "female",
-  orientation: "straight",
-  looking_for: "men",
-  prof_img: "http://scontent-b.cdninstagram.com/hphotos-xaf1/t51.2885-15/1169202_703829666370313_1813166321_n.jpg",
-  apt_img: "http://photography.thetravelchica.com/USA/NYC/Around-Manhattan/i-PK5jrBN/0/L/NYC%20201211%20Apartment%20(2)-L.jpg"
-  )
 
 User.create(
   first_name: "Kesha",
@@ -100,6 +90,17 @@ User.create(
   password: "111",
   prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10784800_345340548960697_145543384_n.jpg",
   apt_img: "http://scontent-a.cdninstagram.com/hphotos-xaf1/t51.2885-15/10817619_339679602884401_450243426_n.jpg"
+  )
+
+User.create(
+  first_name: "@hellothisiscass",
+  last_name: "Squirrel",
+  age: 24,
+  gender: "female",
+  orientation: "straight",
+  looking_for: "men",
+  prof_img: "http://scontent-b.cdninstagram.com/hphotos-xaf1/t51.2885-15/1169202_703829666370313_1813166321_n.jpg",
+  apt_img: "http://photography.thetravelchica.com/USA/NYC/Around-Manhattan/i-PK5jrBN/0/L/NYC%20201211%20Apartment%20(2)-L.jpg"
   )
 
 User.create(
@@ -146,16 +147,6 @@ User.create(
   prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10261066_231166847091548_1097064339_n.jpg",
   )
 
-User.create(
-  first_name: "Ralph",
-  last_name: "Latino",
-  age: 24,
-  gender: "male",
-  orientation: "straight",
-  looking_for: "women",
-  asset_id: 1,
-  prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/1662694_250911801751161_121979762_n.jpg",
-  )
 
 User.create(
   first_name: "Pitbull",
@@ -171,7 +162,18 @@ User.create(
   prof_img: "http://scontent-b.cdninstagram.com/hphotos-xpa1/t51.2885-15/10808810_573784376100365_229509136_n.jpg",
   )
 
-Like.create_match(8, 9)
+User.create(
+  first_name: "Ralph",
+  last_name: "Latino",
+  age: 24,
+  gender: "male",
+  orientation: "straight",
+  looking_for: "women",
+  asset_id: 1,
+  prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/1662694_250911801751161_121979762_n.jpg",
+  )
+
+Like.create_match(7, 9)
 Like.create_match(8, 10)
 Like.create_match(14, 4)
 
