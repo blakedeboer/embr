@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117234734) do
+ActiveRecord::Schema.define(version: 20141118015436) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 20141117234734) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "apt_img"
+  end
+
+  create_table "assets", force: true do |t|
+    t.string "category"
+    t.string "img"
   end
 
   create_table "dislikes", force: true do |t|
@@ -89,7 +94,8 @@ ActiveRecord::Schema.define(version: 20141117234734) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "password"
-    t.string   "attribute_img"
+    t.string   "asset_img"
+    t.integer  "asset_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
