@@ -9,4 +9,12 @@ class Like < ActiveRecord::Base
   def self.has_a_match(like) #=> returns matching like, or nil if doesn't exist
     find_by("liker_id = ? AND likee_id = ?", like.likee_id, like.liker_id)
   end
+
+  def self.create_match(user_id1, user_id2)
+    l = Like.new(:liker_id => user_id1, :likee_id => user_id2)
+    u = Like.new(:liker_id => user_id2, :likee_id => user_id1)
+    l.save
+    u.save
+  end
+
 end

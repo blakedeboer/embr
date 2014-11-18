@@ -14,17 +14,6 @@ require_relative '../lib/assets/scraper'
 # end
 
 User.create(
-  first_name: "Grace",
-  last_name: "Hopper",
-  age: 21,
-  gender: "female",
-  orientation: "straight",
-  looking_for: "men",
-  prof_img: "http://scontent-a.cdninstagram.com/hphotos-xpa1/t51.2885-15/1389046_226904904157963_262990159_n.jpg",
-  apt_img: "http://scontent-b.cdninstagram.com/hphotos-xpa1/t51.2885-15/10755848_1538762289701109_1286852453_n.jpg"
-  )
-
-User.create(
   first_name: "Jenna",
   last_name: "Cowboy Hat",
   age: 30,
@@ -33,6 +22,16 @@ User.create(
   looking_for: "men",
   prof_img: "http://scontent-a.cdninstagram.com/hphotos-xap1/t51.2885-15/10735179_294192850789688_998134096_n.jpg",
   apt_img: "http://kcbruski.files.wordpress.com/2010/05/p5130101.jpg"
+  )
+User.create(
+  first_name: "Grace",
+  last_name: "Hopper",
+  age: 21,
+  gender: "female",
+  orientation: "straight",
+  looking_for: "men",
+  prof_img: "http://scontent-a.cdninstagram.com/hphotos-xpa1/t51.2885-15/1389046_226904904157963_262990159_n.jpg",
+  apt_img: "http://scontent-b.cdninstagram.com/hphotos-xpa1/t51.2885-15/10755848_1538762289701109_1286852453_n.jpg"
   )
 
 User.create(
@@ -97,6 +96,8 @@ User.create(
   gender: "female",
   orientation: "straight",
   looking_for: "men",
+  email: "k@k.com",
+  password: "111",
   prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10784800_345340548960697_145543384_n.jpg",
   apt_img: "http://scontent-a.cdninstagram.com/hphotos-xaf1/t51.2885-15/10817619_339679602884401_450243426_n.jpg"
   )
@@ -164,9 +165,16 @@ User.create(
   orientation: "straight",
   looking_for: "women",
   asset_id: 1,
+  email: "p@p.com",
+  password: "111",
   asset_img: "http://wholles.com/wp-content/uploads/2013/04/Funny-Cat-Glasses1.jpg",
   prof_img: "http://scontent-b.cdninstagram.com/hphotos-xpa1/t51.2885-15/10808810_573784376100365_229509136_n.jpg",
   )
+
+Like.create_match(8, 9)
+Like.create_match(8, 10)
+Like.create_match(14, 4)
+
 
 
 
