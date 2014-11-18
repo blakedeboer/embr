@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116212617) do
+ActiveRecord::Schema.define(version: 20141117234734) do
 
   create_table "apartments", force: true do |t|
     t.string   "address"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20141116212617) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "password"
+    t.string   "attribute_img"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

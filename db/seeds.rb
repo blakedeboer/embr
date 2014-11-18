@@ -64,7 +64,8 @@ User.create(
   gender: "male",
   orientation: "straight",
   looking_for: "women",
-  prof_img: "http://highlineballroom.com/assets/Mickey-Avalon-1-652x367-538x301.jpg"
+  prof_img: "http://highlineballroom.com/assets/Mickey-Avalon-1-652x367-538x301.jpg",
+  attribute_img: "http://www.marvelbuilding.com/wp-content/uploads/2012/02/Unique-and-Comfortable-Chair-Inspirerd-by-Bunny.jpg"
   )
 
 User.create(
@@ -75,7 +76,7 @@ User.create(
   orientation: "straight",
   looking_for: "men",
   prof_img: "http://content8.flixster.com/rtactor/40/45/40458_pro.jpg",
-  apt_img: "http://whygo-amr.s3.amazonaws.com/www.newyorklogue.com/files/2007/12/apartment.jpg"
+  attribute_img: "http://whygo-amr.s3.amazonaws.com/www.newyorklogue.com/files/2007/12/apartment.jpg"
   )
 
 User.create(

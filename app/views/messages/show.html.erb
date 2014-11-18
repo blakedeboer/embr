@@ -14,25 +14,35 @@
           <div class="chat">
             <p>
               <% @liker.conversation_with(@likee.id).each do |message| %>
+                <div style=width:100%;">
                 <% if message.from_id == @liker.id%>
-                  <%= image_tag(@liker.prof_img, height: '30', width: '30')%>
+                  <div class="col-xs-9" style="background: red;">
+                    <div class="message-holder">
+                      <div class="bubble you">
+                        <%= message.content%>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-3" style="background: blue;">
+                    <div class="image-holder">
+                      <%= image_tag(@liker.prof_img, width: '100%')%>
+                    </div>
+                  </div>
+                <% else %>
                   <div class="bubble me">
                     <p><%= message.content%></p>
                   </div>
-                <% else %>
-                  <div class="bubble you">
-                    <p><%= message.content%></p>
-                  </div>
                 <% end %>
+                </div>
+                <div class="clearfix"></div>
               <% end %>     
             </p>
           </div>
           
           <p>
             <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
-              <%= label_tag(:content, "Send a new message") %>
-              <%= text_area_tag(:content) %>
-              <%= submit_tag("Send", , class: "btn btn-danger") %>
+              <%= text_area_tag(:content, style:"width:60%") %>
+              <%= submit_tag("Send") %>
             <% end %>
           </p>
 
