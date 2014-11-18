@@ -11,19 +11,24 @@
           </p>  
 
           <!-- CHAT BOX -->
-          <div class="chat">
+          <!-- outter div -->
+          <div class="chat"> 
             <p>
               <% @liker.conversation_with(@likee.id).each do |message| %>
                 <% if message.from_id == @liker.id%>
-                  <%= image_tag(@liker.prof_img, height: '30', width: '30')%>
-                  <div class="bubble me">
-                    <p><%= message.content%></p>
-                  </div>
-                <% else %>
-                  <div class="bubble you">
-                    <p><%= message.content%></p>
-                  </div>
-                <% end %>
+
+                  <div class="row">
+                    <%= image_tag(@liker.prof_img, height: '30', width: '30')%>
+                    <div class="bubble me">
+                      <p><%= message.content%></p>
+                    </div>
+                  <% else %>
+                    <div class="bubble you">
+                      <p><%= message.content%></p>
+                    </div>
+                  <% end %>
+
+                </div>
               <% end %>     
             </p>
           </div>
