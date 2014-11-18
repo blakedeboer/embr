@@ -16,7 +16,7 @@
         <%= select(:apartment, :price, @price_array)%>
         <% if @user_is_guest %> 
           <%= label_tag(:hood_id, "Neighborhood") %>
-          <%= select(:apartment, :hood_id, options_for_select(@hood_array)) %>
+          <%= select(:apartment, :hood_id, options_for_select(@hood_array)) %> 
         <% end %>
         <br>
         <%= button_tag(type: "submit", class: "btn btn-default btn-lg") do %>
