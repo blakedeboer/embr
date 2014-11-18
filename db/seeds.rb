@@ -173,10 +173,7 @@ User.create(
   prof_img: "http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/1662694_250911801751161_121979762_n.jpg",
   )
 
-Like.create_match(7, 9)
-Like.create_match(8, 10)
-Like.create_match(14, 4)
-
+Like.reset_matches
 
 
 

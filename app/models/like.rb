@@ -17,4 +17,12 @@ class Like < ActiveRecord::Base
     u.save
   end
 
+  def self.reset_matches
+    Like.destroy_all
+    Dislike.destroy_all
+    Like.create_match(7, 9)
+    Like.create_match(7, 10)
+    Like.create_match(14, 4)
+  end
+   
 end
