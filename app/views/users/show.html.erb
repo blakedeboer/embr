@@ -31,12 +31,13 @@
             <p>
               <h4><%= @user.apartment.hood.name %></h4>
               <ul>
-                <li>Address: <%= @user.apartment.address.gsub(/^\d+\s/,"") %></li>
-                <li>Room type: <%= @user.apartment.room_type %></li>
-                <li>Price ($/week): <%= @user.apartment.price %></li>
+                <li>Street: <%= @user.apartment.no_number_address %></li>
+                <li>Bedroom count: <%= @user.apartment.br_count %></li>
+                <li>Price: <%= @user.apartment.dollarize_price %>/month</li>
               </ul>
             </p>
           <% end %>
+          <% if @user.id != session[:user_id] %>
             <p>
               <%= button_to "/users/#{@user.id}/likes", :method => "post", :params => {:dislikee_id => @user.id}, class: "btn btn-danger decision-btn" do %>
                     <i class="fa fa-close"></i>
@@ -47,10 +48,13 @@
               <% end %>
               <div class="clearfix"></div>
             </p>
+          <% end %>
           </div>
         </div>
       </div>
   </div>
+
+  <!-- (/^\d+\s/,"") -->
 
 
 

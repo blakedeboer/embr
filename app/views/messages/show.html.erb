@@ -7,7 +7,7 @@
       </div>
         <div class="caption">
           <p>
-            <h2><%= @likee.first_name %></h2>
+            <h2>Your conversation with <%= @likee.first_name %>:</h2>
           </p>  
 
           <!-- CHAT BOX -->
@@ -49,23 +49,23 @@
             </p>
           </div>
           
-          <div class="submit-btn">
-          
-            <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
-              <div class = "txt-area decision-btn">
+          <div class="submit-box">
+            <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "1") do %>
+              <div class = "col-xs-9">
                 <%= text_area_tag(:content) %>
               </div>
 
-              <div class = "submit-area", "btn btn-danger decision-btn">
+              <div class ="col-xs-3">
                 <%= submit_tag("Send") %>
               </div>
             <% end %>
             <div class="clearfix"></div>
-         
           </div>
 
         </div>
       </div>
     </div>
   </div>
+
+
 

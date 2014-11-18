@@ -13,10 +13,13 @@
 
       <%= form_tag("/", method: "post") do %>
         <%= label_tag(:price, "Price") %>
-        <%= select(:apartment, :price, @price_array)%>
+        <%= select(:apartment, :price, options_for_select(@price_array))%>
         <% if @user_is_guest %> 
           <%= label_tag(:hood_id, "Neighborhood") %>
-          <%= select(:apartment, :hood_id, options_for_select(@hood_array)) %> 
+          <%= select(:apartment, :hood_id, options_for_select(@hood_array)) %>
+        <% else %>
+          <%= label_tag(:asset_id, "Length of stay") %>
+          <%= select(:asset, :asset_id, options_for_select(@los_array)) %> 
         <% end %>
         <br>
         <%= button_tag(type: "submit", class: "btn btn-default btn-lg") do %>
@@ -32,4 +35,4 @@
 
 
 
- <!-- nil, placeholder: "enter price" -->
+

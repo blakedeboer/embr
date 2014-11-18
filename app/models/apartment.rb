@@ -13,4 +13,21 @@ class Apartment < ActiveRecord::Base
   def self.apts_by_hood(hood_array)
     self.where("hood_id IN (?)", hood_array)
   end
+
+  def dollarize_price
+    i = self.price
+    dollarize(i)    
+  end
+
+  def dollarize(integer)
+    s = integer.to_s
+    "$#{s}".insert(-4, ",")
+  end
+
+  def no_number_address
+    a = self.address.split(" ")
+    a.shift
+    a.join(" ")
+  end
+
 end

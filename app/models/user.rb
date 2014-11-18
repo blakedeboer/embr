@@ -37,6 +37,29 @@ class User < ActiveRecord::Base
     self.find(session[:user_id])
   end
 
+  def self.price_array
+    price_array = (500..4000).step(500).to_a
+    price_array = price_array.map do |price| 
+      s = price.to_s
+      dollar = "$#{s}"
+      if s.length > 3
+        dollar.insert(-4, ",")
+      end
+      [dollar, price]
+    end
+    price_array.insert(0, 'any price')
+  end
+
+  def self.length_of_stay_array
+  [["any period", 0],["1 night", 1], ["1-2 weeks", 2], 
+    ["1 month+", 3]]
+  end
+
+  def self.hood_array
+    hood_array = Hood.all.map{|hood| [hood.name, hood.id]}
+    hood_array.insert(0, 'any neighborhood')
+  end
+
   def has_liked?
     Like.where(:liker_id => self.id).count == 0 ? false : true
   end

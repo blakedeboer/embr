@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
 
   def index
-    @price_array = (500..4000).step(500).to_a.insert(0, 'any price')
-    hood_array = Hood.all.map{|hood| [hood.name, hood.id]}
-    @hood_array = hood_array.insert(0, 'any neighborhood')
-    # session[:user_id] = 1
+    @price_array = User.price_array
+    @hood_array = User.hood_array
+    @los_array = User.length_of_stay_array
+
     if session[:user_id] 
       @user_is_guest = User.find(session[:user_id]).guest? 
     else
@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     session[:price] = params[:apartment][:price]
     if @user.guest?
       session[:hood_id] = params[:apartment][:hood_id]
+    else 
+      session[:asset_id] = params[:asset][:asset_id]
     end
 
     redirect_to new_user_like_path(@user)
