@@ -6,14 +6,17 @@
   <div class="col-md-offset-1">
     <h1><%= @user.first_name %>, here are all your matches</h1>
     <div class="media">
-      <a class="media-left media-middle" href="#">
+      
         <% @matches.each do |match|%>
+          <a class="media-left media-middle" href="/users/<%=match.id%>">
           <img width="150" height "150" src="<%= match.prof_img %>" class="img-thumbnail">
       </a>
       <div class="media-body">
         <h4 class="media-heading"><%=match.first_name%>, <%=match.age%></h4>
+        <div class="decision-btn">
         <a href="<%= user_message_path(@user.id, match.id) %>" class="btn btn-danger" role="button">Message</a>  
         <a href="/users/<%= match.id %>" class="btn btn-default" role="button">View Profile</a>
+        </div>
       </div>
       <% end %>
     </div>

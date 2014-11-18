@@ -15,23 +15,32 @@
           <div class="chat"> 
             <p>
               <% @liker.conversation_with(@likee.id).each do |message| %>
-                <div style=width:100%;">
+                <div style=width:100%;>
                 <% if message.from_id == @liker.id%>
-                  <div class="col-xs-9" style="background: red;">
+                  <div class="col-xs-9">
                     <div class="message-holder">
                       <div class="bubble you">
                         <%= message.content%>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-3" style="background: blue;">
+                  <div class="col-xs-3">
                     <div class="image-holder">
-                      <%= image_tag(@liker.prof_img, width: '100%')%>
+                      <%= image_tag(@liker.prof_img, width: '100%', )%>
                     </div>
                   </div>
                 <% else %>
-                  <div class="bubble me">
-                    <p><%= message.content%></p>
+                  <div class="col-xs-3">
+                    <div class="image-holder">
+                      <%= image_tag(@likee.prof_img, width: '100%')%>
+                    </div>
+                  </div>
+                  <div class="col-xs-9">
+                    <div class="message-holder">
+                      <div class="bubble me">
+                        <%= message.content%>
+                      </div>
+                    </div>
                   </div>
                 <% end %>
                 </div>
@@ -40,12 +49,20 @@
             </p>
           </div>
           
-          <p>
+          <div class="submit-btn">
+          
             <%= form_tag(user_messages_path(@liker.id, :params => {:likee_id => @likee.id}), method: "post", rows: "3") do %>
-              <%= text_area_tag(:content, style:"width:60%") %>
-              <%= submit_tag("Send") %>
+              <div class = "txt-area decision-btn">
+                <%= text_area_tag(:content) %>
+              </div>
+
+              <div class = "submit-area", "btn btn-danger decision-btn">
+                <%= submit_tag("Send") %>
+              </div>
             <% end %>
-          </p>
+            <div class="clearfix"></div>
+         
+          </div>
 
         </div>
       </div>
